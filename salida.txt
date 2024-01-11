@@ -1,0 +1,6 @@
+Size: 500000
+Print flag: 0
+Swap sort
+	Comparaciones: 445698416
+	Intercambios: 978117710
+	Tiempo de ejecución en ms: 1270206
