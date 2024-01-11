@@ -1,4 +1,4 @@
-#Algoritmos de ordenamiento
+##Algoritmos de ordenamiento
 
 Compilación con debug:
 g++ -std=c++17 *.cpp -Wall -g -o main
