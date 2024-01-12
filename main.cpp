@@ -1,5 +1,5 @@
 /*
- * Algoritmos de ordenamiento parte 01
+ * Algoritmos de ordenamiento parte 02
  *
  * Compilación con debug:
  *  g++ -std=c++17 *.cpp -Wall -g -o main
@@ -20,6 +20,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+
 int main(void) {
   int i, size, flag;
   unsigned int comparaciones, swaps;
@@ -39,26 +40,44 @@ int main(void) {
     }
     cout << endl;
   }
-  // Instancia un objeto de la clase AlgoritmoSort
+  // Instancia un objeto de la clase AlgoritmoSort 
   AlgorithmSort<int> sortObj;
 
-  // Ordenamiento del vector utilizando swap sort
+  // Mezcla los elementos del vector en forma aleatoria
+  sortObj.randomShuffle(myVector);
+  // Ordenamiento del vector utilizando merge sort
   // Inicio conteo de tiempo de ejecución
   auto startTime = std::chrono::high_resolution_clock::now();
-  cout << "Swap sort" << endl;
+  cout << "Merge sort" << endl;
   comparaciones = swaps = 0;
-  sortObj.swapSort(myVector, size, comparaciones, swaps);
+  sortObj.mergeSort(myVector, 0, size-1, comparaciones);
   if (flag)
     sortObj.printVector(myVector);
   // Termina conteo de tiempo de ejecución
   auto endTime = std::chrono::high_resolution_clock::now();
   auto totalTime = endTime - startTime;
   cout << "\tComparaciones: " << comparaciones << endl;
-  cout << "\tIntercambios: " << swaps << endl;
   cout << "\tTiempo de ejecución en ms: "
        << totalTime / std::chrono::milliseconds(1) << endl;
   // Mezcla los elementos del vector en forma aleatoria
   sortObj.randomShuffle(myVector);
 
+  // Ordenamiento del vector utilizando quick sort
+  // Inicio conteo de tiempo de ejecución
+  startTime = std::chrono::high_resolution_clock::now();
+  cout << "Quick sort" << endl;
+  comparaciones = swaps = 0;
+  sortObj.quickSort(myVector, 0, size-1, comparaciones, swaps);
+  if (flag)
+    sortObj.printVector(myVector);
+  // Termina conteo de tiempo de ejecución
+  endTime = std::chrono::high_resolution_clock::now();
+  totalTime = endTime - startTime;
+  cout << "\tComparaciones: " << comparaciones << endl;
+  cout << "\tIntercambios: " << swaps << endl;
+  cout << "\tTiempo de ejecución en ms: "
+       << totalTime / std::chrono::milliseconds(1) << endl;
+  
+  
   return 0;
 }
