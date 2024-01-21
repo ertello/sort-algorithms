@@ -188,7 +188,7 @@ template<class T>
 int AlgorithmSort<T>::partition(std::vector<T> &A, int low, int high, unsigned int &compara, unsigned int &swap) {
   T pivot = A[high];
   int i = low - 1;
-  for (int j = low; j < high-1; j++) {
+  for (int j = low; j < high; j++) {
     compara++;
     if (A[j] < pivot) {
       i++;
