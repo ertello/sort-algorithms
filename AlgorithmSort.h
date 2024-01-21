@@ -116,7 +116,7 @@ template<class T>
 void AlgorithmSort<T>::insertionSort(std::vector<T> &A, int n, unsigned int &compara, unsigned int &swap) {
   compara = swap = 0;
   for (int i = 1; i < n; i++) {
-    T key = A[i];
+    T key = A[i];  // ERROR CORREGIDO tipo T
     int j = i - 1;
     compara++;
     while (j >= 0 && A[j] > key) {
